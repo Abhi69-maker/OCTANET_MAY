@@ -1,0 +1,92 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.input-group {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+}
+
+button[type="button"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #28a745;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+button[type="button"]:hover {
+  background-color: #218838;
+}
+
+.todos-container {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.todo-item-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+}
+
+.todo-text {
+  flex: 1;
+  margin: 0;
+}
+
+button {
+  margin-left: 10px;
+}
+
+button.complete {
+  background-color: #007bff;
+  color: #fff;
+}
+
+button.delete {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #aaa;
+}

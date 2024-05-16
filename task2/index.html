@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="main">
+        <div class="container">
+            <h2>Todo list</h2>
+            <div class="input-group">
+                <input type="text" id="text-input-field" autofocus>
+                <button id="add-button" type="button">Add</button>
+            </div>
+            <!-- input-group end -->
+            <div class="todos-container">
+                <!-- Todo items will be added here -->
+            </div>
+            <!-- todos-container end -->
+        </div>
+        <!-- container end -->
+    </main>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const addButton = document.getElementById('add-button');
+            const textInputField = document.getElementById('text-input-field');
+            const todosContainer = document.querySelector('.todos-container');
+
+            addButton.addEventListener('click', () => {
+                const todoText = textInputField.value.trim();
+                if (todoText) {
+                    const todoItemContainer = document.createElement('div');
+                    todoItemContainer.classList.add('todo-item-container');
+
+                    const todoTextElement = document.createElement('p');
+                    todoTextElement.classList.add('todo-text');
+                    todoTextElement.textContent = todoText;
+
+                    const completeButton = document.createElement('button');
+                    completeButton.textContent = 'Complete';
+                    completeButton.addEventListener('click', () => {
+                        todoTextElement.classList.toggle('completed');
+                    });
+
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'Delete';
+                    deleteButton.addEventListener('click', () => {
+                        todosContainer.removeChild(todoItemContainer);
+                    });
+
+                    todoItemContainer.appendChild(todoTextElement);
+                    todoItemContainer.appendChild(completeButton);
+                    todoItemContainer.appendChild(deleteButton);
+                    todosContainer.appendChild(todoItemContainer);
+
+                    textInputField.value = '';
+                }
+            });
+
+            textInputField.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    addButton.click();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
